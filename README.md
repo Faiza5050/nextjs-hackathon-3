@@ -3,5 +3,4 @@ I am Faiza Kanwal, Learning Next.js in GIAIC, Here is a Hackathon from Figma Tem
 
 ## Performance Testing Report
 
-🚀 **Lighthouse Report:** [View Report](https://nextjs-e-commerce.vercel.app/docs/reports/nextjs-e-commerce.vercel.app.html)
-
+🚀 **Lighthouse Report:** [View Report](file:///C:/Users/Hp%20x360/Documents/nextjs-e-commerce-hackathon-3.vercel.app-20250211T034343.html)
