@@ -13,12 +13,15 @@ const Footer = () => {
           
           <div>
             <div className="flex items-center space-x-2 mb-4">
-            <div className="w-10 h-10 rounded-lg">
-              <Image src="/logo.jpg" alt="logo" 
-                height={50}
-                width={100} 
-              />
-            </div>
+              <div className="w-10 h-10 rounded-lg">
+                <Image 
+                  src="/logo.jpg" 
+                  alt="logo" 
+                  width={50} 
+                  height={50} 
+                  className="w-auto h-auto"
+                />
+              </div>
               <span className="text-lg font-semibold">Comforty</span>
             </div>
             <p className="text-sm text-gray-600">
@@ -27,84 +30,32 @@ const Footer = () => {
             </p>
             
             <div className="flex space-x-4 mt-4">
-              <div className="w-8 h-8">
-              <FaFacebook />
-
-              </div>
-              <div className="w-8 h-8">
-              <FaTwitter />
-
-              </div>
-              <div className="w-8 h-8">
-              <FaInstagram />
-
-              </div>
-              <div className="w-8 h-8">
-              <IoLogoYoutube />
-
-              </div>
+              <div className="w-8 h-8"><FaFacebook /></div>
+              <div className="w-8 h-8"><FaTwitter /></div>
+              <div className="w-8 h-8"><FaInstagram /></div>
+              <div className="w-8 h-8"><IoLogoYoutube /></div>
             </div>
           </div>
 
           <div>
             <h3 className="text-sm font-bold mb-4">CATEGORY</h3>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>
-                <a href="#" className="hover:underline">
-                  Sofa
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Armchair
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Wing Chair
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline text-teal-500">
-                  Desk Chair
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Wooden Chair
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Park Bench
-                </a>
-              </li>
+              <li><a href="#" className="hover:underline">Sofa</a></li>
+              <li><a href="#" className="hover:underline">Armchair</a></li>
+              <li><a href="#" className="hover:underline">Wing Chair</a></li>
+              <li><a href="#" className="hover:underline text-teal-500">Desk Chair</a></li>
+              <li><a href="#" className="hover:underline">Wooden Chair</a></li>
+              <li><a href="#" className="hover:underline">Park Bench</a></li>
             </ul>
           </div>
 
           <div>
             <h3 className="text-sm font-bold mb-4">SUPPORT</h3>
             <ul className="space-y-2 text-sm text-gray-600">
-              <li>
-                <a href="#" className="hover:underline">
-                  Help & Support
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Help
-                </a>
-              </li>
+              <li><a href="#" className="hover:underline">Help & Support</a></li>
+              <li><a href="#" className="hover:underline">Terms & Conditions</a></li>
+              <li><a href="#" className="hover:underline">Privacy Policy</a></li>
+              <li><a href="#" className="hover:underline">Help</a></li>
             </ul>
           </div>
 
@@ -134,13 +85,16 @@ const Footer = () => {
 
         <div className="mt-8 flex flex-col lg:flex-row justify-between items-center text-sm text-gray-500">
           <p>© 2021 - Blogy - Designed & Developed by Zakirsoft</p>
-          <div className="w-[227px] h-[27px] mt-8 ml-80 flex flex-col lg:flex-row items-center text-sm text-gray-700">
-          <Image src="/logo2.jpg" alt="paypal logo" 
-            height={50}
-            width={100} 
-          />
+          
+          <div className="w-[227px] h-[27px] flex items-center justify-center">
+            <Image 
+              src="/logo2.jpg" 
+              alt="paypal logo" 
+              width={100} 
+              height={50} 
+              className="w-auto h-auto"
+            />
           </div>
-          <div className="w-[40] h-[8] mt-4 "></div>
         </div>
         
       </div>

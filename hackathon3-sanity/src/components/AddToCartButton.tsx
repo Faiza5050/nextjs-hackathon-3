@@ -1,26 +1,23 @@
-"use client"; // Ye line zaroori hai taaki ye component client-side par run ho
+"use client";
 
 import React from "react";
-import useCartStore from "@/store/useCartStore"; // Zustand Cart Store import karein
+import useCartStore from "@/store/useCartStore";
 
-// Define the Products type directly in this file if it doesn't exist
-interface Products {
+interface Product {
   _id: string;
-  id: string;
   title: string;
   description: string;
-  image: string;
+  image: { asset: { _ref: string } } | { asset: { _ref: string } }[] | string;
   price: number;
-  quantity: number; 
 }
 
 interface AddToCartButtonProps {
-  product: Products;
+  product: Product;
   className?: string;
 }
 
 const AddToCartButton = ({ product, className }: AddToCartButtonProps) => {
-  const { cartItems, addToCart } = useCartStore(); // Zustand ka use kar ke addToCart function le rahe hain
+  const { addToCart, toastMessage, resetToast } = useCartStore();
 
   const handleAddToCart = () => {
     addToCart({
@@ -30,15 +27,26 @@ const AddToCartButton = ({ product, className }: AddToCartButtonProps) => {
       image: product.image,
       quantity: 1,
     });
+
+    setTimeout(() => {
+      resetToast(); // Hide message after 3 seconds
+    }, 3000);
   };
 
   return (
-    <button
-      onClick={handleAddToCart}
-      className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-all"
-    >
-      Add to Cart
-    </button>
+    <div>
+      <button
+        onClick={handleAddToCart}
+        className={`bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition-all ${className}`}
+      >
+        Add to Cart
+      </button>
+      {toastMessage && (
+        <div className="fixed bottom-4 right-4 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg">
+          {toastMessage}
+        </div>
+      )}
+    </div>
   );
 };
 

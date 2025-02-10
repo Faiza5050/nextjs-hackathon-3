@@ -5,7 +5,7 @@ export default defineType({
   title: "Orders",
   type: "document",
   fields: [
-    // Order Status
+
     defineField({
       name: "status",
       title: "Order Status",
@@ -17,26 +17,6 @@ export default defineType({
       initialValue: "Pending",
     }),
 
-    // Cart Items
-    // defineField({
-    //   name: "cartItems",
-    //   title: "Cart Items",
-    //   type: "array",
-    //   of: [
-    //     defineArrayMember({
-    //       type: "object",
-    //       fields: [
-    //         { name: "title", title: "Product Name", type: "string" },
-    //         { name: "quantity", title: "Quantity", type: "number" },
-    //         { name: "price", title: "Price", type: "number" },
-    //         { name: "imageUrl", title: "Image URL", type: "url" },
-    //       ],
-    //     }),
-    //   ],
-    // }),
-
-    //
-    // Cart Items
     defineField({
       name: "cartItems",
       title: "Cart Items",
@@ -92,14 +72,12 @@ export default defineType({
       ],
     }),
 
-    // Total Price
     defineField({
       name: "totalPrice",
       title: "Total Price",
       type: "number",
     }),
 
-    // Created At (Timestamp)
     defineField({
       name: "createdAt",
       title: "Created At",

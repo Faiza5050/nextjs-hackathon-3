@@ -7,7 +7,6 @@ import Image from "next/image";
 import React from "react";
 import { urlFor } from "@/sanity/lib/image";
 import Link from "next/link";
-import useCartStore from "@/store/useCartStore";
 import AddToCartButton from "@/components/AddToCartButton";
 
 interface Product {
@@ -21,7 +20,7 @@ interface Product {
     current: string;
     _type: string;
   };
-  quantity?: number;
+  quantity: number;
 }
 
 const Home: React.FC = () => {
@@ -29,9 +28,16 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const query = '*[_type == "products" && "featured" in tags]';
+      const query = `*[_type == "products" && "featured" in tags] {
+        _id,
+        title,
+        price,
+        description,
+        "image": image,
+        "slug": slug.current,
+        tags      
+      }`;
       const result = await client.fetch(query);
-      console.log("Fetched Products:", result);
       setFeaturedProducts(result);
     }
     fetchData();
@@ -52,7 +58,7 @@ const Home: React.FC = () => {
                 className="bg-white shadow-md rounded-lg overflow-hidden p-4 hover:shadow-lg transition-shadow duration-300"
               >
                 <Image
-                  src={urlFor(product.image).url() ?? "/placeholder.jpg"} // Fallback image if URL is not available
+                  src={urlFor(product.image) ?? "/placeholder.jpg"} // Fallback image if URL is not available
                   alt={product.title}
                   width={100}
                   height={200}
@@ -68,7 +74,7 @@ const Home: React.FC = () => {
                 )}
 
                 <Link
-                  href={`/productDetail/${product.slug?.current}`}
+                  href={`/productDetail/${product.slug}`}
                   className="bg-red-400 px-4 py-2 rounded block text-center mt-2"
                 >
                   View Details
@@ -77,12 +83,10 @@ const Home: React.FC = () => {
                 <AddToCartButton
                   product={{
                     _id: product._id,
-                    id: product._id,
                     title: product.title,
                     description: product.description || "",
                     price: product.price,
-                    image: urlFor(product.image).url(),
-                    quantity: 1,
+                    image: urlFor(product.image),
                   }}
                   className="bg-blue-600 text-white px-4 py-2 rounded block text-center mt-2 w-full hover:bg-blue-700 transition-all"
                 />

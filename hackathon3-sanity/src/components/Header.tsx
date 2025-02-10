@@ -4,11 +4,13 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { BsCartCheck } from "react-icons/bs";
 import Image from "next/image";
+import useCartStore from "@/store/useCartStore";
 import { AiTwotoneExclamationCircle } from "react-icons/ai";
 import { FaPhoneVolume } from "react-icons/fa6";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { cartItems } = useCartStore();
 
   return (
     <header className="w-full mt-2 pl-36 pr-40">
@@ -49,16 +51,11 @@ const Header = () => {
             ☰
           </button>
 
-          <Link href="/cart">
-            <div className="relative hidden lg:block md:hidden">
-              <button className="bg-white border rounded-full p-2 flex items-center space-x-2 shadow-md hover:shadow-lg">
-                <div className="w-8 h-8 rounded-full">
-                  <BsCartCheck />
-                </div>
-                <span className="text-sm">Cart</span>
-              </button>
-            </div>
+          <Link href="/cart" className="flex items-center gap-2 hover:underline">
+            <BsCartCheck />
+            <span>Cart ({cartItems.length})</span>
           </Link>
+
         </div>
       </div>
 
@@ -98,13 +95,9 @@ const Header = () => {
                 <span className="text-sm px-4">(805) 555-0111</span>
               </Link>
             </div>
-            <Link href="/cart">
-              <button className="w-full bg-white border rounded-md p-2 flex shadow-md hover:shadow-lg">
-                <div className="w-8 h-8 -mt-4 rounded-full">
-                  <BsCartCheck />
-                </div>
-                <span className="text-sm -mt-4 hover:underline">Cart</span>
-              </button>
+            <Link href="/cart" className="flex items-center gap-2 hover:underline">
+              <BsCartCheck />
+              <span>Cart ({cartItems.length})</span>
             </Link>
           </div>
 
