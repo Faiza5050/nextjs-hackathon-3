@@ -1,0 +1,9 @@
+Test Case ID,Description,Steps,Expected Result,Actual Result,Status,Remarks
+TC001 ,Validate product listing,1. Open the website.,1. Product listing page should load successfully.,1. Product listing page loaded successfully.,Pass,No issues found.
+,,2. Navigate to the product listing page.,"2. All products should be displayed with images, names, and prices.",2. All products displayed correctly.,,
+TC002,Test API error handling,Check the error handling mechanism.,User should see an appropriate error message.,User saw an appropriate error message.,Pass,"Error handling works as expected.
+"
+TC003,Check cart functionality,1. Add a product to the cart.,1. Product should be added to the cart.,1. Product added to cart successfully.,Pass,Cart functionality is working fine.
+,,2. Proceed to checkout.,2. Checkout process should work smoothly.,2. Checkout process completed without errors.,,
+TC004 ,Test responsiveness,"1. Open the website on different devices (mobile, tablet, desktop).",1. Website should be responsive on all devices.,1. Website was responsive on all devices.,Pass,Responsiveness is excellent.
+,,2. Check the layout and functionality.,2. Layout and functionality should adapt to screen size.,2. Layout and functionality adapted correctly.,,
